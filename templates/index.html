@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>QR Code Generator</title>
+</head>
+
+<body>
+    <h1>QR Code Maker</h1>
+    <div class="main-container">
+    <div class="form-container">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label>Enter URL:  <input type="text" name="link" placeholder="Enter link here" required></label>
+            <label>Enter QR file name: <input type="text" name="filename" placeholder="Enter filename here" required></label>
+            <span>*choose appropriate size of your qr code. Size is in cm.</span>
+            <label>Enter Size of Qr code: <input type="number" name="box_size" placeholder="Qr Size" required></label>
+            <label>Enter border size of Qr code: <input type="number" name="border" placeholder="Border size" required></label>
+            <label>Choose color for boxes of Qr code: <input type="color" name="fill" placeholder="Fill color" required></label>
+            <label>Choose color for background of Qr code: <input type="color" name="back" placeholder="Background color" required></label>
+            <span>*It is optional to choose picture. You can skip this if you don't want any picture between the qr code</span>
+            <label>Choose any picture to put in center of Qr code: <input type="file" name="logo"></label></label>
+            <input class="submit" type="submit" value="Generate QR Code">
+            <button type="button" onclick="clearForm()">Clear</button>
+        </form>
+    </div>
+    {% if img_data_url %}
+    <div class="display-container">
+        <img src="{{ img_data_url }}" alt="Generated QR Code">
+        <a href="{{ img_data_url }}" download="{{ filename }}.png">Download QR Code</a>
+    </div>
+    {% endif %}
+
+    <script>
+        function clearForm() {
+            document.querySelector('form').reset();  // Reset the form fields
+            window.location.href = '/';  // Make a GET request to server
+        }
+    </script>
+    </div>
+    <footer>
+        <p>
+           @2023 Copyright &#169; Made by Ayush Kanaujia      
+        </p>
+    </footer>
+</body>
+
+</html>
