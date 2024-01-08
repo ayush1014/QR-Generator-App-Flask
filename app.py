@@ -50,4 +50,5 @@ def home():
 
     return render_template('index.html', img_data_url=None, filename=None)
 
-
+# if __name__ == '__main__':
+#     app.run(debug=True)

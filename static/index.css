@@ -151,7 +151,27 @@ h1 {
     align-items: center;
     margin-top: 20px;
     /* Space above QR code display */
-    right: 20%
+    right: 20%;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.display-container a{
+    font-size: 150%;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(147, 9, 18);
+    text-decoration: none;
+    color: #f0e6f6;
+    padding: 15px;
+    border-radius: 20px;
+    transition: ease-out, 1s;
+}
+
+.display-container a:hover{
+    color:rgb(147, 9, 18);
+    background-color: #f0e6f6;
+    padding: 10px;
 }
 
 span {
